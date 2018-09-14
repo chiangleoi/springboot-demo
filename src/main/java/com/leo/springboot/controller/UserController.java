@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.leo.springboot.entity.UserEntity;
 import com.leo.springboot.service.UserService;
@@ -21,7 +19,6 @@ import com.leo.springboot.utils.ResultUtil;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/user")
@@ -49,7 +46,7 @@ public class UserController {
     }
     
     @GetMapping("/{id:\\d+}")
-    @ApiOperation("通过ID 获取用户")
+    @ApiOperation("通过ID 获取用户") // swagger 中的注释
     public Object findByid(@ApiParam("用户id") @PathVariable Integer id) {
     	return UserService.findById(id);
     }
