@@ -3,6 +3,7 @@ package com.leo.springboot.enums;
 public enum ResultEnum {
 	UNKONW_ERROR(-1, "未知错误"),
 	SUCCESS(0, "成功"),
+	FORM_VALID_ERROR(99, "表单校验失败"),
 	USER_TOOYOUNG(100, "这是小朋友，你不能看到"),
 	USER_TOOOLD(101, "你还在你妈肚子里吧？"),
 	;

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.leo.springboot.dao.UserDao;
-import com.leo.springboot.entity.ResultEntity;
+import com.leo.springboot.entity.ResultVO;
 import com.leo.springboot.entity.UserEntity;
 import com.leo.springboot.enums.ResultEnum;
 import com.leo.springboot.exception.UserException;
@@ -16,19 +16,19 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	
-	public ResultEntity add(UserEntity user) {
+	public ResultVO<Object> add(UserEntity user) {
 		return ResultUtil.success(userDao.add(user));
 	}
 	
-	public ResultEntity findAll() {
+	public ResultVO<Object> findAll() {
 		return ResultUtil.success(userDao.findAll());
 	}
 	
-	public ResultEntity findById (Integer id) {
+	public ResultVO<Object> findById (Integer id) {
 		return ResultUtil.success(userDao.findById(id));
 	}
 	
-	public ResultEntity findAgeById (Integer id) throws Exception {
+	public ResultVO<Object> findAgeById (Integer id) throws Exception {
 		UserEntity user = (UserEntity) userDao.findById(id);
 		Integer age = user.getAge();
 		if (age < 6) {

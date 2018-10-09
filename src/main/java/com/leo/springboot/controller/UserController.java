@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.leo.springboot.entity.UserEntity;
+import com.leo.springboot.enums.ResultEnum;
 import com.leo.springboot.service.UserService;
 import com.leo.springboot.utils.ResultUtil;
 
@@ -55,7 +56,7 @@ public class UserController {
     public Object addUser(@Valid UserEntity user, BindingResult bindingResult) {
     	if (bindingResult.hasErrors()) {
     		logger.error(bindingResult.getFieldError().getDefaultMessage());
-    		return ResultUtil.error(100, bindingResult.getFieldError().getDefaultMessage());
+    		return ResultUtil.error(ResultEnum.FORM_VALID_ERROR, bindingResult.getFieldError().getDefaultMessage());
     	} else {
     		return UserService.add(user);
     	}

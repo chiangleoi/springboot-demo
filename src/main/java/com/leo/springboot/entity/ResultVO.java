@@ -6,11 +6,11 @@ package com.leo.springboot.entity;
  *
  * @param
  */
-public class ResultEntity {
+public class ResultVO<T> {
 
 	private Integer code;
 	private String msg;
-	private Object data;
+	private T data;
 	public Integer getCode() {
 		return code;
 	}
@@ -23,10 +23,10 @@ public class ResultEntity {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public Object getData() {
+	public T getData() {
 		return data;
 	}
-	public void setData(Object data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 	

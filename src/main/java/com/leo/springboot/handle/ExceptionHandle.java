@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.leo.springboot.entity.ResultEntity;
+import com.leo.springboot.entity.ResultVO;
 import com.leo.springboot.enums.ResultEnum;
 import com.leo.springboot.exception.UserException;
 import com.leo.springboot.utils.ResultUtil;
@@ -19,7 +19,8 @@ public class ExceptionHandle {
 	
 	@ExceptionHandler(value = Exception.class)
 	@ResponseBody
-	public ResultEntity handle(Exception e) {
+	public ResultVO<Object> handle(Exception e) {
+		
 		if (e instanceof UserException) {
 			UserException userException = (UserException) e;
 			return ResultUtil.error(userException.getCode(), userException.getMessage());
